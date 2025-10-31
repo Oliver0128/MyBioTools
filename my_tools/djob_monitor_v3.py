@@ -6,9 +6,9 @@ import smtplib
 from email.mime.text import MIMEText
 
 # --- 你的邮箱配置 (需要修改) ---
-SENDER_EMAIL = "hzauhuangxianzhe@163.com"
-SENDER_PASSWORD = "JGk9jrcyJY4Vr7jz"  # 授权码
-RECEIVER_EMAIL = "245290821@qq.com"
+SENDER_EMAIL = ""
+SENDER_PASSWORD = ""  # 授权码
+RECEIVER_EMAIL = ""
 SMTP_SERVER = "smtp.163.com"
 SMTP_PORT = 465
 

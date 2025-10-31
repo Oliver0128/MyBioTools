@@ -10,7 +10,7 @@ from pathlib import Path  # 引入 pathlib 用于更优雅的文件路径操作
 # ----------------- 【配置信息】 -----------------
 
 # ⚠️ 替换为您自己的 DeepSeek API 密钥
-API_KEY = 'sk-98b68b44409142b1b49265c5aaed2139' 
+API_KEY = 'sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' 
 # 文件路径：请确保该文件路径是正确的
 FILE_PATH = '../output/protein_header/column_headers.txt'
 
