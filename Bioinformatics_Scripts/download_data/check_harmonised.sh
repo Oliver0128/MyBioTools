@@ -1,20 +1,23 @@
 #!/bin/bash
 
 # GWAS Catalog Harmonised Check Script
-# Usage: ./check_harmonised.sh -i input.txt [-o output_dir]
+# Usage: ./check_harmonised.sh -i input.txt [-o output_dir] [-p prefix]
 
 # Default values
 OUTPUT_DIR="."
+PREFIX=""
 
 # Parse command line arguments
-while getopts "i:o:" opt; do
+while getopts "i:o:p:" opt; do
     case $opt in
         i) INPUT_FILE="$OPTARG" ;;
         o) OUTPUT_DIR="$OPTARG" ;;
+        p) PREFIX="$OPTARG" ;;
         *) 
-            echo "Usage: $0 -i <input_file> [-o output_dir]"
+            echo "Usage: $0 -i <input_file> [-o output_dir] [-p prefix]"
             echo "  -i  Input file with GWAS IDs (one per line, no header)"
             echo "  -o  Output directory for result files (default: current dir)"
+            echo "  -p  Prefix for output file names (optional)"
             exit 1
             ;;
     esac
@@ -35,8 +38,13 @@ mkdir -p "$OUTPUT_DIR"
 
 # Output files
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
-HAS_HARM="$OUTPUT_DIR/has_harmonised_${TIMESTAMP}.txt"
-NO_HARM="$OUTPUT_DIR/no_harmonised_${TIMESTAMP}.txt"
+if [[ -n "$PREFIX" ]]; then
+    HAS_HARM="$OUTPUT_DIR/${PREFIX}_has_harmonised_${TIMESTAMP}.txt"
+    NO_HARM="$OUTPUT_DIR/${PREFIX}_no_harmonised_${TIMESTAMP}.txt"
+else
+    HAS_HARM="$OUTPUT_DIR/has_harmonised_${TIMESTAMP}.txt"
+    NO_HARM="$OUTPUT_DIR/no_harmonised_${TIMESTAMP}.txt"
+fi
 
 > "$HAS_HARM"
 > "$NO_HARM"
