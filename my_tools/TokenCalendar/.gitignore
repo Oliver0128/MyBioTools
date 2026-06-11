@@ -1,0 +1,37 @@
+# Python build/runtime artifacts
+__pycache__/
+*.py[cod]
+
+# Local archives and generated data. These files may contain NewAPI log rows,
+# token names, source hosts, IP addresses, usage totals, and cached rates.
+data/
+*.sqlite
+*.sqlite3
+*.sqlite3-*
+*.db
+*.db-*
+*.lock
+
+# Local credentials/config copied by mistake
+.env
+.env.*
+.codex/
+auth.json
+config.toml
+credentials.json
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+
+# Local logs / copied terminal output
+*.log
+*.log.*
+*.out
+
+# Local systemd unit generated from the public example
+systemd/token-calendar-collect.service
+
+# Shareable screenshots should be reviewed/redacted before publishing
+token-calendar-screenshot.*
+screenshots/

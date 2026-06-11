@@ -1,0 +1,7 @@
+[Unit]
+Description=Collect New API token logs for TokenCalendar
+
+[Service]
+Type=oneshot
+WorkingDirectory=__TOKENCALENDAR_DIR__
+ExecStart=__PYTHON_BIN__ __TOKENCALENDAR_DIR__/collect_logs.py --timeout 6 --usage-timeout 2
